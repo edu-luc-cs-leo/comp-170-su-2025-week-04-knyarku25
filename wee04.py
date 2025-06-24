@@ -1,3 +1,56 @@
+# Returns the longest word in the list
+def longest_word(words: list[str]) -> str:
+    if words is None or len(words) == 0:
+        return None # Return None for invalid input
+    longest = words[0] # Assume first word is the longest
+    for word in words:
+      if len(word) > len(longest):
+          longest = word # Update if longer word is found
+    return longest # Only one return
+
+# Returns the shorest word in the list
+def shortest_word(words: list[str]) -> str:
+    if words is None or len(words) == 0:
+      return None # Return None for invalid input
+    shortest = words[0] # Assume first word is the shortest
+    for word in words:
+        if len(word) < len(shortest):
+            shortest = word # Update if shorter word is found
+    return shortest # Only one return
+
+# Returns all words that have an odd number of characters
+def odd_words(words: list[str]) -> list[str]:
+    if words is None or len(words) == 0:
+        return None # Return None for invalid input
+    result = [] # List to store odd-length words
+    for word in words:
+        if len(word) % 2 == 1:
+            result.append(word) # Add if word length is odd
+    return result # Only one return
+
+# Returns words whose length is within pls 1 of avergae word length
+def average_words(words: list[str]) -> list[str]:
+    if words is None or len(words) == 0:
+        return None # Return None for invalid input
+    total_length = 0 # Total length of all words
+    for word in words:
+        total_length += len(word)
+    average = total_length / len(words) # Compute the average length
+    result = [] # Store words close to average
+    for word in words:
+       if abs(len(word) - average) <= 1:
+            result.append(word)
+    return result # Only one return
+
+# Returns True if there is at least one common element in both lists
+def intersect(foo: list[str], bar: list[str]) -> bool:
+   if foo is None or bar is None:
+       return False # Can not intersect if one list is missing
+   for item1 in foo:
+       for item2 in bar:
+           if item1 == item2:
+              return True # Found a match
+   return False # No match found                   
 
 
 #--------------------------------------------------------------------------------#
